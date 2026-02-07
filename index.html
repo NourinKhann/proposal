@@ -116,11 +116,23 @@ button {
     75% { transform: translateX(-6px); }
     100% { transform: translateX(0); }
 }
+
+/* BACK BUTTON */
+.back-btn {
+    margin-top: 20px;
+    background: linear-gradient(to right, #fb7185, #f472b6);
+    color: white;
+    box-shadow: 0 8px 20px rgba(244,114,182,0.4);
+}
 </style>
 </head>
 
 <body>
 
+<div id="app"></div>
+
+<script>
+const mainPage = `
 <div class="card">
     <div class="emoji">🐻💗</div>
     <h1>Hey baby</h1>
@@ -136,10 +148,12 @@ button {
         <button id="noBtn" onclick="noClick()">NO 🙈</button>
     </div>
 </div>
+`;
 
-<script>
+document.getElementById("app").innerHTML = mainPage;
+
 function yes() {
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
     <div style="
         min-height:100vh;
         background:linear-gradient(135deg,#fce7f3,#ede9fe);
@@ -163,7 +177,7 @@ function yes() {
 }
 
 function noClick() {
-    document.body.innerHTML = `
+    document.getElementById("app").innerHTML = `
     <div style="
         min-height:100vh;
         background:linear-gradient(135deg,#fee2e2,#fecaca);
@@ -182,9 +196,17 @@ function noClick() {
             <p style="color:#7f1d1d;font-size:16px;margin-top:10px;">
                 Ei option ta tomaar jonne chilo na 😤🙄
             </p>
+
+            <button class="back-btn" onclick="goBack()">
+                Back to YES 😌
+            </button>
         </div>
     </div>
     `;
+}
+
+function goBack() {
+    document.getElementById("app").innerHTML = mainPage;
 }
 </script>
 
