@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For You, Baby 💗</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    height: 100vh;
+    background: linear-gradient(135deg, #fce7f3, #ffe4e6, #ede9fe);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Glass card */
+.card {
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(12px);
+    padding: 40px 35px;
+    border-radius: 30px;
+    text-align: center;
+    width: 360px;
+    box-shadow: 0 25px 60px rgba(255, 105, 180, 0.25);
+    animation: pop 1.2s ease;
+}
+
+@keyframes pop {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+h1 {
+    color: #ec4899;
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+p {
+    color: #6b7280;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.emoji {
+    font-size: 48px;
+    animation: float 2s infinite ease-in-out;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+.buttons {
+    margin-top: 25px;
+    position: relative;
+}
+
+button {
+    padding: 13px 30px;
+    border-radius: 40px;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#yesBtn {
+    background: linear-gradient(to right, #fb7185, #f472b6);
+    color: white;
+    box-shadow: 0 10px 25px rgba(244, 114, 182, 0.4);
+}
+
+#yesBtn:hover {
+    transform: scale(1.05);
+}
+
+#noBtn {
+    background: #e5e7eb;
+    color: #6b7280;
+    position: absolute;
+}
+
+.polaroids {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.polaroids img {
+    width: 160px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 15px;
+    background: white;
+    padding: 10px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+</style>
+</head>
+
+<body>
+
+<div class="card" id="card">
+    <div class="emoji">🐻💗</div>
+    <h1>Hey baby</h1>
+
+    <p>
+        You’re my safe place, my favorite smile,<br>
+        my always person 🥺💞<br><br>
+        Baby… will you be my forever? 💍
+    </p>
+
+    <div class="buttons">
+        <button id="yesBtn" onclick="yes()">YES 🥺💖</button>
+        <button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+    </div>
+</div>
+
+<script>
+function yes() {
+    document.body.innerHTML = `
+    <div style="
+        min-height:100vh;
+        background:linear-gradient(135deg,#fce7f3,#ede9fe);
+        padding:40px;
+        text-align:center;
+        font-family:Poppins;
+    ">
+        <h1 style="color:#ec4899;font-size:34px;">YAYYYYY(AB TO GHARWALE MAAN HI JAYENGE) 🥹💗</h1>
+        <p style="color:#ec4899;font-size:18px;">
+            Look at us! You make me thissss happpyyyyy 🥺💞<br>
+            I choose you. Always. Forever. 💍
+        </p>
+
+        <div class="polaroids">
+            <img src="1.jpeg">
+            <img src="2.jpeg">
+            <img src="3.jpeg">
+        </div>
+    </div>
+    `;
+}
+
+function moveNo() {
+    const noBtn = document.getElementById("noBtn");
+    const x = Math.random() * 250;
+    const y = Math.random() * 150;
+    noBtn.style.left = x + "px";
+    noBtn.style.top = y + "px";
+}
+</script>
+
+</body>
+</html>
