@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
-<!-- IMPORTANT FOR MOBILE -->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>For You, Baby 💗</title>
@@ -24,7 +22,7 @@ body {
     padding: 20px;
 }
 
-/* Card adapts to phone width */
+/* MAIN CARD */
 .card {
     background: rgba(255,255,255,0.75);
     backdrop-filter: blur(12px);
@@ -59,13 +57,14 @@ p {
     100% { transform: translateY(0); }
 }
 
+/* BUTTONS */
 .buttons {
     margin-top: 25px;
-    position: relative;
-    height: 70px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
 }
 
-/* Buttons sized for thumbs */
 button {
     padding: 14px 28px;
     border-radius: 999px;
@@ -83,11 +82,9 @@ button {
 #noBtn {
     background: #e5e7eb;
     color: #6b7280;
-    position: absolute;
-    top: 0;
-    right: 0;
 }
 
+/* PHOTOS */
 .polaroids {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
@@ -103,6 +100,21 @@ button {
     background: white;
     padding: 8px;
     box-shadow: 0 10px 22px rgba(0,0,0,0.15);
+}
+
+/* ANGRY SHAKE */
+.angry-emoji {
+    font-size: 70px;
+    margin-bottom: 15px;
+    animation: shake 0.4s infinite;
+}
+
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-6px); }
+    50% { transform: translateX(6px); }
+    75% { transform: translateX(-6px); }
+    100% { transform: translateX(0); }
 }
 </style>
 </head>
@@ -121,7 +133,7 @@ button {
 
     <div class="buttons">
         <button id="yesBtn" onclick="yes()">YES 🥺💖</button>
-        <button id="noBtn" onmouseover="moveNo()">NO 🙈</button>
+        <button id="noBtn" onclick="noClick()">NO 🙈</button>
     </div>
 </div>
 
@@ -137,7 +149,7 @@ function yes() {
     ">
         <h1 style="color:#ec4899;">YAAYYY 🥹💗</h1>
         <p style="color:#ec4899;font-size:16px;">
-            Look at us. You make me thisss happyyy. 😭💞<br>
+            Look at us. You make me thisss happyyy 😭💞<br>
             I choose you. Always. Forever. 💍
         </p>
 
@@ -150,12 +162,29 @@ function yes() {
     `;
 }
 
-function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    const x = Math.random() * 150;
-    const y = Math.random() * 40;
-    noBtn.style.left = x + "px";
-    noBtn.style.top = y + "px";
+function noClick() {
+    document.body.innerHTML = `
+    <div style="
+        min-height:100vh;
+        background:linear-gradient(135deg,#fee2e2,#fecaca);
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        text-align:center;
+        font-family:Poppins;
+        padding:20px;
+    ">
+        <div>
+            <div class="angry-emoji">😡😤</div>
+            <h1 style="color:#b91c1c;font-size:26px;">
+                No keno click korechhhissss?????
+            </h1>
+            <p style="color:#7f1d1d;font-size:16px;margin-top:10px;">
+                Ei option ta tomaar jonne chilo na 😤🙄
+            </p>
+        </div>
+    </div>
+    `;
 }
 </script>
 
